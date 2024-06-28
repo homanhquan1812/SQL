@@ -20,7 +20,7 @@ Ta còn có thể sử dụng SQL để tạo bảng và dữ liệu trong Datab
   
   Trong ví dụ trên, ta có 2 bản ghi và 3 trường.
 ## Differences of Data Types among MySQL, PostgreSQL, and SQL Server
-| MySQL | PostgreSQL | SQL Server |   |
+| MySQL | PostgreSQL | Microsoft SQL Server |   |
 |:---:|:---:|:---:|---|
 |TEXT|TEXT|TEXT|Dùng cho một chuỗi các ký tự không bị giới hạn về chiều dài.|
 |VARCHAR|VARCHAR|VARCHAR|Lưu trữ chuỗi các ký tự không bị giới hạn chiều dài. Nhưng ta có thể giới hạn chiều dài bằng cách dùng VARCHAR(n) với n là số tự nhiên > 0.|
