@@ -9,3 +9,30 @@ SQL (Structured Query Language): Là 1 ngôn ngữ truy vấn dùng để tươn
 SQL còn được sử dụng để thực hiện các hoạt động CRUD trên cơ sở dữ liệu quan hệ
 
 Ta còn có thể sử dụng SQL để tạo bảng và dữ liệu trong Database bằng các câu lệnh SQL Query -> Thường được sử dụng để truy vấn và thao tác dữ liệu trong Database.
+## Columns & Rows
+* 1 Database có 1 hoặc nhiều bảng, 1 bảng được xem là 1 quan hệ (Relation).
+* 1 Bảng có các bản ghi (Dòng - Row) và các trường (Cột - Column), như trong ví dụ này:
+  
+  | id | first_name | job |
+  |--|--|--|
+  | 1 | Manh | Doctor |
+  | 2 | Quan | Teacher |
+  
+  Trong ví dụ trên, ta có 2 bản ghi và 3 trường.
+## Differences of Data Types among MySQL, PostgreSQL, and SQL Server
+| MySQL | PostgreSQL | Microsoft SQL Server |   |
+|:---:|:---:|:---:|---|
+|TEXT|TEXT|TEXT|Dùng cho một chuỗi các ký tự không bị giới hạn về chiều dài.|
+|VARCHAR|VARCHAR|VARCHAR|Lưu trữ chuỗi các ký tự không bị giới hạn chiều dài. Nhưng ta có thể giới hạn chiều dài bằng cách dùng VARCHAR(n) với n là số tự nhiên > 0.|
+|CHAR|CHAR|CHAR|Như VARCHAR, nhưng khác ở chỗ CHAR(n), nếu độ dài < n thì sẽ lấp khoảng trống sau đó cho đến khi độ dài = n.|
+|INTEGER/INT|INTEGER/INT|INTEGER/INT|Lưu số nguyên, phạm vi từ -2147483648 đến 2147483647.|
+|`AUTO_INCREMENT`|`SERIAL`|`IDENTITY(a, b)`|Số thứ tự (Ở SQL Server thì số thứ tự xuất phát từ a và tăng dần theo b).|
+|NUMERIC(a, b)/DECIMAL(a, b)|NUMERIC(a, b)/DECIMAL(a, b)|NUMERIC(a, b)/DECIMAL(a, b)|Số thập phân, a gồm các chữ số trước và sau dấu phẩy (thường a = 10), b là số chữ số cần được làm tròn sau dấu phẩy.|
+|`BOOLEAN/BIT`|`BOOLEAN`|`BIT`|Boolean, thường là 1/True hoặc 0/False.|
+|`DATETIME/TIMESTAMP`|`TIMESTAMP`|`DATETIME`|Lưu ngày tháng năm, giờ phút giây (2069-06-09 06:09:00).|
+
+# Some tips when using Databases
+* Phải có **dấu chấm phẩy ";"** cuối câu.
+ * Sau khi dùng lệnh gì xong cũng phải **REFRESH** lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
+ * Ta có thể dùng chữ hoa hoặc chữ thường để viết lệnh (Khuyến nghị dùng **chữ hoa**).
+ * Sau khi thực thi **(Execute)** lệnh SQL Query, cần **xóa ngay những dòng lệnh đã dùng trước đó**.
