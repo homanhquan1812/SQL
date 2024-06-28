@@ -30,3 +30,9 @@ Ta còn có thể sử dụng SQL để tạo bảng và dữ liệu trong Datab
 |NUMERIC(a, b)/DECIMAL(a, b)|NUMERIC(a, b)/DECIMAL(a, b)|NUMERIC(a, b)/DECIMAL(a, b)|Số thập phân, a gồm các chữ số trước và sau dấu phẩy (thường a = 10), b là số chữ số cần được làm tròn sau dấu phẩy.|
 |`BOOLEAN/BIT`|`BOOLEAN`|`BIT`|Boolean, thường là 1/True hoặc 0/False.|
 |`DATETIME/TIMESTAMP`|`TIMESTAMP`|`DATETIME`|Lưu ngày tháng năm, giờ phút giây (2069-06-09 06:09:00).|
+
+## Some tips when using Databases
+* Phải có dấu chấm phẩy ";" cuối câu.
+ * Sau khi dùng lệnh gì xong cũng phải REFRESH lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
+ * Ta có thể dùng chữ hoa hoặc chữ thường để viết lệnh (Khuyến nghị dùng chữ hoa).
+ * Sau khi thực thi (Execute) lệnh SQL Query, cần xóa ngay những dòng lệnh đã dùng trước đó.
