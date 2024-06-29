@@ -49,7 +49,7 @@ Khóa ngoại (Foreign Key) được sử dụng để thiết lập và thực 
 ## Data Normalization
 Chuẩn hóa dữ liệu (Data Normalization) là quá trình tổ chức dữ liệu trong cơ sở dữ liệu để giảm thiểu sự dư thừa và phụ thuộc không cần thiết.
 
-Có 4 mức chuẩn hóa phổ biến: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF)</b>, BCNF (Boyce – Codd Normal Form); mỗi mức độ chuẩn hóa nên được thực hiện <b>theo thứ tự tăng dần</b>.
+Có 4 mức chuẩn hóa phổ biến: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF), BCNF (Boyce – Codd Normal Form)</b>; mỗi mức độ chuẩn hóa nên được thực hiện <b>theo thứ tự tăng dần</b>.
 
 ### First Normal Form (1NF)
 Đảm bảo rằng tất cả các cột trong bảng đều chứa các giá trị nguyên tố (atomic values), nghĩa là mỗi cột chỉ chứa một giá trị đơn lẻ cho mỗi hàng.
