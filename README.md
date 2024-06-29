@@ -46,6 +46,33 @@ Composite Key thường được sử dụng nếu bạn cần nhiều cột là
 ### Foreign Key
 Khóa ngoại (Foreign Key) được sử dụng để thiết lập và thực thi mối quan hệ giữa các bảng. Khóa ngoại là một hoặc nhiều cột trong một bảng mà giá trị của nó phải khớp với giá trị của khóa chính trong bảng khác để duy trì tính toàn vẹn tham chiếu giữa các bảng trong cơ sở dữ liệu.
 
+## Data Normalization
+Chuẩn hóa dữ liệu (Data Normalization) là quá trình tổ chức dữ liệu trong cơ sở dữ liệu để giảm thiểu sự dư thừa và phụ thuộc không cần thiết.
+
+Có 3 mức chuẩn hóa: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF)</b>.
+
+### First Normal Form (1NF)
+Đảm bảo rằng tất cả các cột trong bảng đều chứa các giá trị nguyên tố (atomic values), nghĩa là mỗi cột chỉ chứa một giá trị đơn lẻ cho mỗi hàng.
+
+| id | name | subjects |
+|--|--|--|
+| 1 | John | Math, Science, Literature |
+| 2 | Alice | English, History, Spanish |
+
+Sau khi được chuẩn hoá 1NF thì sẽ được: 
+| id | name | subjects |
+|--|--|--|
+| 1 | John | Math |
+| 2 | John | Science |
+| 3 | John | Literature |
+| 4 | Alice | English |
+| 5 | Alice | History |
+| 6 | Alice | Spanish |
+
+### Second Normal Form (2NF)
+
+### Third Normal Form (3NF)
+
 # Some tips when using Databases
 * Phải có **dấu chấm phẩy ";"** cuối câu.
  * Sau khi dùng lệnh gì xong cũng phải **REFRESH** lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
