@@ -49,29 +49,112 @@ Khóa ngoại (Foreign Key) được sử dụng để thiết lập và thực 
 ## Data Normalization
 Chuẩn hóa dữ liệu (Data Normalization) là quá trình tổ chức dữ liệu trong cơ sở dữ liệu để giảm thiểu sự dư thừa và phụ thuộc không cần thiết.
 
-Có 3 mức chuẩn hóa: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF)</b>.
+Có 4 mức chuẩn hóa phổ biến: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF)</b>, BCNF (Boyce – Codd Normal Form); mỗi mức độ chuẩn hóa nên được thực hiện <b>theo thứ tự tăng dần</b>.
 
 ### First Normal Form (1NF)
 Đảm bảo rằng tất cả các cột trong bảng đều chứa các giá trị nguyên tố (atomic values), nghĩa là mỗi cột chỉ chứa một giá trị đơn lẻ cho mỗi hàng.
 
-| id | name | subjects |
+| id | name | subject |
 |--|--|--|
 | 1 | John | Math, Science, Literature |
 | 2 | Alice | English, History, Spanish |
 
 Sau khi được chuẩn hoá 1NF thì sẽ được: 
-| id | name | subjects |
+| id | name | subject |
 |--|--|--|
 | 1 | John | Math |
-| 2 | John | Science |
-| 3 | John | Literature |
-| 4 | Alice | English |
-| 5 | Alice | History |
-| 6 | Alice | Spanish |
+| 1 | John | Science |
+| 1 | John | Literature |
+| 2 | Alice | English |
+| 2 | Alice | History |
+| 2 | Alice | Spanish |
 
 ### Second Normal Form (2NF)
+Loại bỏ các phụ thuộc một phần vào khóa chính, tức là mỗi cột không phải khóa chính chỉ phụ thuộc vào toàn bộ khóa chính. Phải đạt được 1NF trước khi tới 2NF.
+
+Ví dụ ta có bảng sau:
+
+| id | name | subject | subject_id |
+|--|--|--|--|
+| 1 | John | Math | S1 |
+| 1 | John | Science | S2 |
+| 1 | John | Literature | S3 |
+| 2 | Alice | English | S4 |
+| 2 | Alice | History | S5 |
+| 2 | Alice | Spanish | S6 |
+
+Chúng ta tạo ra thêm các bảng để loại bỏ các phụ thuộc một phần và đảm bảo rằng các thuộc tính chỉ phụ thuộc vào khóa chính:
+
+Bảng <b>Students</b>:
+| `id` | name |
+|--|--|
+| 1 | John |
+| 2 | Alice |
+
+Bảng <b>Subjects</b>:
+| `subject_id` | subject |
+|--|--|
+| S1 | Math |
+| S2 | Science |
+| S3 | Literature |
+| S4 | Alice |
+| S5 | English |
+| S6 | Spanish |
+
+Bảng <b>Students_Subjects</b>:
+| `id` | `subject_id` |
+|--|--|
+| 1 | S1 |
+| 1 | S2 |
+| 1 | S3 |
+| 2 | S4 |
+| 2 | S5 |
+| 2 | S6 |
+
+Bảng <b>Student_Subjects</b> đóng vai trò như một bảng liên kết giữa hai bảng chính là <b>Students</b> và <b>Subjects</b>.
 
 ### Third Normal Form (3NF)
+Loại bỏ các phụ thuộc bắc cầu (transitive dependencies), nghĩa là các cột không phải khóa chính không phụ thuộc vào các cột không phải khóa chính khác.
+
+Ví dụ, ta có bảng sau:
+
+| id | first_name | last_name | subject | subject_id |
+|--|--|--|--|--|
+| 1 | John | Doe | Math | S1 |
+| 1 | John | Doe | Science | S2 |
+| 1 | John | Doe | Literature | S3 |
+| 2 | Alice | Heard | English | S4 |
+| 2 | Alice | Heard | History | S5 |
+| 2 | Alice | Heard | Spanish | S6 |
+
+Bảng <b>Students</b>:
+| id | first_name | last_name |
+|--|--|--|
+| 1 | John | Doe |
+| 2 | Alice | Heard |
+
+Bảng <b>Subjects</b>:
+| `subject_id` | subject |
+|--|--|
+| S1 | Math |
+| S2 | Science |
+| S3 | Literature |
+| S4 | Alice |
+| S5 | English |
+| S6 | Spanish |
+
+Bảng <b>Students_Subjects</b>:
+| `id` | `subject_id` |
+|--|--|
+| 1 | S1 |
+| 1 | S2 |
+| 1 | S3 |
+| 2 | S4 |
+| 2 | S5 |
+| 2 | S6 |
+
+### BCNF (Boyce – Codd Normal Form)
+Dạng chuẩn Boyce–Codd (hoặc BCNF hoặc 3.5NF) khá giống 3NF (Tự tìm hiểu kĩ).
 
 # Some tips when using Databases
 * Phải có **dấu chấm phẩy ";"** cuối câu.
