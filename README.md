@@ -10,8 +10,8 @@ SQL còn được sử dụng để thực hiện các hoạt động CRUD trên
 
 Ta còn có thể sử dụng SQL để tạo bảng và dữ liệu trong Database bằng các câu lệnh SQL Query -> Thường được sử dụng để truy vấn và thao tác dữ liệu trong Database.
 ## Columns & Rows
-* 1 Database có 1 hoặc nhiều bảng, 1 bảng được xem là 1 quan hệ (Relation).
-* 1 Bảng có các bản ghi (Dòng - Row) và các trường (Cột - Column), như trong ví dụ này:
+* 1 Database có 1 hoặc nhiều bảng, 1 bảng được xem là 1 `quan hệ` (Relation).
+* 1 Bảng có các `bản ghi` (Row) và các `trường` (Column), như trong ví dụ này:
   
   | id | first_name | job |
   |--|--|--|
@@ -49,7 +49,7 @@ Khóa ngoại (Foreign Key) được sử dụng để thiết lập và thực 
 ## Data Normalization
 Chuẩn hóa dữ liệu (Data Normalization) là quá trình tổ chức dữ liệu trong cơ sở dữ liệu để giảm thiểu sự dư thừa và phụ thuộc không cần thiết.
 
-Có 4 mức chuẩn hóa phổ biến: <b>First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF), BCNF (Boyce – Codd Normal Form)</b>; mỗi mức độ chuẩn hóa nên được thực hiện <b>theo thứ tự tăng dần</b>.
+Có 4 mức chuẩn hóa phổ biến: `First Normal Form (1NF)`, `Second Normal Form (2NF)`, `Third Normal Form (3NF)`, `BCNF (Boyce – Codd Normal Form)`; mỗi mức độ chuẩn hóa nên được thực hiện <b>theo thứ tự tăng dần</b>.
 
 ### First Normal Form (1NF)
 Đảm bảo rằng tất cả các cột trong bảng đều chứa các giá trị nguyên tố (atomic values), nghĩa là mỗi cột chỉ chứa một giá trị đơn lẻ cho mỗi hàng.
@@ -152,6 +152,8 @@ Bảng <b>Students_Subjects</b>:
 | 2 | S4 |
 | 2 | S5 |
 | 2 | S6 |
+
+Bảng <b>Student_Subjects</b> đóng vai trò như một bảng liên kết giữa hai bảng chính là <b>Students</b> và <b>Subjects</b>.
 
 ### BCNF (Boyce – Codd Normal Form)
 Dạng chuẩn Boyce–Codd (hoặc BCNF hoặc 3.5NF) khá giống 3NF (Tự tìm hiểu kĩ).
