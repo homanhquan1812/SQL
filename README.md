@@ -31,6 +31,21 @@ Ta còn có thể sử dụng SQL để tạo bảng và dữ liệu trong Datab
 |`BOOLEAN/BIT`|`BOOLEAN`|`BIT`|Boolean, thường là 1/True hoặc 0/False.|
 |`DATETIME/TIMESTAMP`|`TIMESTAMP`|`DATETIME`|Lưu ngày tháng năm, giờ phút giây (2069-06-09 06:09:00).|
 
+And many more.
+
+## Constraints
+Ràng buộc (Constraints) là các quy tắc được áp đặt trên dữ liệu trong bảng để đảm bảo tính toàn vẹn và nhất quán của dữ liệu, giúp ngăn chặn việc nhập dữ liệu không hợp lệ vào bảng và đảm bảo rằng các hoạt động trên dữ liệu tuân theo các quy tắc đã được xác định trước.
+
+Các loại ràng buộc phổ biến là: <b>NOT NULL, NULL, UNIQUE, FOREIGN KEY, PRIMARY KEY, DEFAULT,...</b>
+
+### Primary Key
+Khóa chính (Primary Key) được dùng để xác định <b>DUY NHẤT</b> mỗi hàng trong một bảng. Một cột hoặc một tập hợp các cột (Composite Key) được chỉ định làm khóa chính sẽ đảm bảo rằng mỗi giá trị trong cột (hoặc kết hợp các giá trị trong các cột) là <b>duy nhất và không thể có giá trị NULL</b>. 
+
+Composite Key thường được sử dụng nếu bạn cần nhiều cột làm khóa chính. VD: Giả sử bạn có một bảng orders với các cột <b>order_id, product_id, và quantity</b>. Trong bảng này, một <b>order_id</b> có thể xuất hiện nhiều lần (vì mỗi đơn hàng có thể chứa nhiều sản phẩm), và một <b>product_id</b> cũng có thể xuất hiện nhiều lần (vì một sản phẩm có thể có trong nhiều đơn hàng). Tuy nhiên, sự kết hợp của <b>order_id</b> và <b>product_id</b> phải là duy nhất để xác định duy nhất mỗi hàng trong bảng.
+
+### Foreign Key
+Khóa ngoại (Foreign Key) được sử dụng để thiết lập và thực thi mối quan hệ giữa các bảng. Khóa ngoại là một hoặc nhiều cột trong một bảng mà giá trị của nó phải khớp với giá trị của khóa chính trong bảng khác để duy trì tính toàn vẹn tham chiếu giữa các bảng trong cơ sở dữ liệu.
+
 # Some tips when using Databases
 * Phải có **dấu chấm phẩy ";"** cuối câu.
  * Sau khi dùng lệnh gì xong cũng phải **REFRESH** lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
