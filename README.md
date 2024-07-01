@@ -207,7 +207,7 @@ Dạng chuẩn Boyce–Codd (hoặc BCNF hoặc 3.5NF) khá giống 3NF (Tự t�
 </div>
 
 # Some tips when using Databases
-* Phải có **dấu chấm phẩy ";"** cuối câu.
+* Phải có **dấu chấm phẩy ";"** cuối câu SQL Query.
  * Sau khi dùng lệnh gì xong cũng phải **REFRESH** lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
  * Ta có thể dùng chữ hoa hoặc chữ thường để viết lệnh (Khuyến nghị dùng **chữ hoa**).
  * Sau khi thực thi **(Execute)** lệnh SQL Query, cần **xóa ngay những dòng lệnh đã dùng trước đó**.
