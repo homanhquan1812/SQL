@@ -129,7 +129,7 @@ Bảng <b>Subjects</b>:
 ### Third Normal Form (3NF)
 Tính chất cũa 3NF giống với 2NF, nhưng <b>khắt khe</b> hơn; nghĩa là trong bảng 2NF thì có thể vẫn còn 2 cột không khóa phụ thuộc lẫn nhau, trong khi 3NF có tính chất `không có sự phụ thuộc bắc cầu` giữa các cột không khóa trong bảng, nên được dùng để triệt để các trường hợp này.
 
-Như ví dụ ở 2NF, ta nhận thấy rằng `price` vẫn phụ thuộc vào `subject_id` trong khi `subject_id` không phải khóa chính, nên ta vẫn phải tiếp tục tách ra và đây là kết quả:
+Như ví dụ ở 2NF, ta nhận thấy trong bảng **Subjects** rằng `price` vẫn phụ thuộc vào `subject_id` trong khi `subject_id` không phải khóa chính, nên ta vẫn phải tiếp tục tách ra và đây là kết quả:
 
 Bảng <b>Students</b>:
 <div align="center">
