@@ -6,25 +6,35 @@ CREATE TABLE myTable (
     age INT NOT NULL
 );
 
-
 -- Tạo Data trong Table (Không dùng dấu ngoặc kép ở đây)
-INSERT INTO myTable(first_name, job, age)
-VALUES 
-    ('Manh', 'Doctor', 23),
-    ('Quan', 'Teacher', 24),
-    ('Alice', 'Doctor', 34),
-    ('Bob', 'Engineer', 24),
-    ('Charlie', 'Teacher', 27),
-    ('David', 'Nurse', 22),
-    ('Eva', 'Lawyer', 35),
-    ('Frank', 'Scientist', 31),
-    ('Grace', 'Artist', 32),
-    ('Hannah', 'Musician', 39),
-    ('Isaac', 'Writer', 40),
-    ('Jane', 'Photographer', 32);
+INSERT INTO myTable(first_name, job, age) VALUES 
+('Manh', 'Doctor', 23),
+('Quan', 'Teacher', 24),
+('Alice', 'Doctor', 34),
+('Bob', 'Engineer', 24),
+('Charlie', 'Teacher', 27),
+('David', 'Nurse', 22),
+('Eva', 'Lawyer', 35),
+('Frank', 'Scientist', 31),
+('Grace', 'Artist', 32),
+('Hannah', 'Musician', 39),
+('Isaac', 'Writer', 40),
+('Jane', 'Photographer', 32);
 
--- Chọn tất cả dữ liệu từ Table
+-- Chọn tất cả dữ liệu từ Table bằng nhiều cột
 SELECT * FROM myTable;
+
+-- Chọn vài cột từ Table
+SELECT first_name, job FROM myTable;
+
+--==============================================================================
+
+-- Giới hạn số bản ghi
+
+SELECT * FROM myTable LIMIT 5;
+
+-- Nếu muốn skip n bản ghi đầu tiên, dùng OFFSET n
+SELECT * FROM myTable LIMIT 5 OFFSET 5;
 
 --==============================================================================
 
@@ -53,6 +63,18 @@ SELECT * FROM myTable2;
 -- Xem bảng theo yêu cầu khác
 SELECT * FROM myTable WHERE age >= 31 ORDER BY age;
 
+-- Xem bảng chứa các bản ghi theo yêu cầu
+SELECT * FROM myTable WHERE first_name IN ('Manh', 'Quan');
+
+-- Xem bảng chứa các bản ghi nếu ta không nhớ rõ cụ thể
+-- Ví dụ ta muốn tìm ai có tên là "Ma**", ta dùng:
+SELECT * FROM myTable WHERE first_name LIKE 'Ma%';
+
+-- Hoặc nếu ta muốn tìm ai có tên "Q*an", ta dùng:
+SELECT * FROM myTable WHERE first_name LIKE 'Q_an';
+
+-- Có các ILIKE, NOT LIKE, NOT ILIKE, tự tìm hiểu cách dùng.
+
 --==============================================================================
 
 -- Thêm 1 cột vào Table với DEFAULT (Mặc định => Các bản ghi có cùng nội dung)
@@ -61,3 +83,63 @@ ALTER TABLE myTable ADD married BOOLEAN DEFAULT true;
 ALTER TABLE myTable ADD city TEXT DEFAULT 'Ho Chi Minh City';
 
 SELECT * FROM myTable;
+
+--==============================================================================
+
+-- Đổi Data Type cho cột
+ALTER TABLE myTable ALTER COLUMN city TYPE TEXT,
+                    ALTER COLUMN age TYPE SMALLINT;
+
+SELECT * FROM myTable;
+
+--==============================================================================
+
+-- Đổi tên cột
+ALTER TABLE myTable RENAME COLUMN city TO location;
+
+SELECT * FROM myTable;
+
+--==============================================================================
+
+-- Nhét dữ liệu từ nhiều cột vô 1 cột
+CREATE TABLE locations (
+    postal_code VARCHAR(10),
+    address VARCHAR(100),
+    district VARCHAR(50),
+    city VARCHAR(50)
+);
+
+INSERT INTO locations (postal_code, address, district, city) VALUES
+('4166', '939 Probolinggo Loop', 'Galicia', 'A Corua (La Corua)'),
+('77459', '733 Mandaluyong Place', 'Asir', 'Abha');
+
+SELECT CONCAT(
+    postal_code, ', ',
+    address, ', ',
+    district, ', ',
+    city, ', '
+) AS fulladdress FROM locations; -- Sau AS là tên cột mới thỏa mãn điều kiện ta đặt
+
+-- Hoặc dùng:
+SELECT postal_code || ', ' || address || ', ' || district || ', ' || city FROM locations;
+
+--==============================================================================
+
+-- Đổi kiểu dữ liệu
+CREATE TABLE transactions (
+    transaction_date DATE,
+    amount TEXT,
+    fee TEXT
+);
+
+INSERT INTO transactions (transaction_date, amount, fee) VALUES ('1999-01-08', 500, 20);
+INSERT INTO transactions (transaction_date, amount, fee) VALUES ('1999-01-07', 403, 30);
+INSERT INTO transactions (transaction_date, amount, fee) VALUES ('1999-02-08', 3430, 30);
+INSERT INTO transactions (transaction_date, amount, fee) VALUES ('1999-03-08', 5454, 40);
+INSERT INTO transactions (transaction_date, amount, fee) VALUES ('1999-04-08', 1254, 10);
+
+-- Giả sử ta muốn cộng amount + fee nhưng gặp lỗi. Trong trường hợp ta không thể điều chỉnh ở phần CREATE TABLE,
+-- ta sẽ dùng CAST
+SELECT transaction_date,
+CAST(amount AS INT) + CAST(fee AS INT) AS net_amount
+FROM transactions;
