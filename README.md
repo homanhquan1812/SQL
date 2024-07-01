@@ -49,7 +49,7 @@ Các loại ràng buộc phổ biến là: <b>NOT NULL, NULL, UNIQUE, FOREIGN KE
 ### Primary Key
 `Khóa chính` (Primary Key) được dùng để xác định <b>DUY NHẤT</b> mỗi hàng trong một bảng. Một cột hoặc một tập hợp các cột (Composite Key) được chỉ định làm khóa chính sẽ đảm bảo rằng mỗi giá trị trong cột (hoặc kết hợp các giá trị trong các cột) là <b>duy nhất và không thể có giá trị NULL</b>. 
 
-**Composite Key** thường được sử dụng nếu bạn cần nhiều cột làm khóa chính. VD: Giả sử bạn có một bảng orders với các cột <b>order_id, product_id, và quantity</b>. Trong bảng này, một <b>order_id</b> có thể xuất hiện nhiều lần (vì mỗi đơn hàng có thể chứa nhiều sản phẩm), và một <b>product_id</b> cũng có thể xuất hiện nhiều lần (vì một sản phẩm có thể có trong nhiều đơn hàng). Tuy nhiên, sự kết hợp của <b>order_id</b> và <b>product_id</b> phải là duy nhất để xác định duy nhất mỗi hàng trong bảng.
+**Composite Key (Composite Primary Key)** thường được sử dụng nếu bạn cần nhiều cột làm khóa chính. VD: Giả sử bạn có một bảng orders với các cột <b>order_id, product_id, và quantity</b>. Trong bảng này, một <b>order_id</b> có thể xuất hiện nhiều lần (vì mỗi đơn hàng có thể chứa nhiều sản phẩm), và một <b>product_id</b> cũng có thể xuất hiện nhiều lần (vì một sản phẩm có thể có trong nhiều đơn hàng). Tuy nhiên, sự kết hợp của <b>order_id</b> và <b>product_id</b> phải là duy nhất để xác định duy nhất mỗi hàng trong bảng.
 
 ### Foreign Key
 `Khóa ngoại` (Foreign Key) được sử dụng để thiết lập và thực thi mối quan hệ giữa các bảng. Khóa ngoại là một hoặc nhiều cột trong một bảng mà giá trị của nó phải khớp với giá trị của khóa chính trong bảng khác để duy trì tính toàn vẹn tham chiếu giữa các bảng trong cơ sở dữ liệu.
@@ -175,21 +175,23 @@ Dạng chuẩn Boyce–Codd (hoặc BCNF hoặc 3.5NF) khá giống 3NF (Tự t�
 ## Join
 `Join` được dùng để kết hợp các hàng (rows) từ hai hoặc nhiều bảng dựa trên một điều kiện chung, giúp bạn truy vấn và lấy dữ liệu từ nhiều bảng mà có liên quan đến nhau thông qua các khóa chính (primary keys) và khóa ngoại (foreign keys).
 ### Inner Join
-Inner Join được dùng để trả về tất cả các hàng khi có ít nhất một giá trị ở cả hai bảng.
+`Inner Join` được dùng để trả về tất cả các hàng khi có ít nhất một giá trị ở cả hai bảng.
 <div align="center">
     
 ![image](https://github.com/homanhquan1812/SQL/assets/130955957/d5a27f6a-7b16-4216-af5c-7ca3a0a23b4f)
 
 </div>
+
 ### Left Join (Left Outer Join)
-Left Join được dùng để trả lại tất cả các dòng từ bảng bên trái, và các dòng đúng với điều kiện từ bảng bên phải.
+`Left Join` được dùng để trả lại tất cả các dòng từ bảng bên trái, và các dòng đúng với điều kiện từ bảng bên phải.
 <div align="center">
     
 ![image](https://github.com/homanhquan1812/SQL/assets/130955957/7c19e76f-b48e-4955-abca-5638bf5ea526)
 
 </div>
+
 ### Right Join (Right Outer Join)
-Right Join được dùng để trả lại tất cả các hàng từ bảng bên phải, và các dòng thỏa mãn điều kiện từ bảng bên trái.
+`Right Join` được dùng để trả lại tất cả các hàng từ bảng bên phải, và các dòng thỏa mãn điều kiện từ bảng bên trái.
 <div align="center">
     
 ![image](https://github.com/homanhquan1812/SQL/assets/130955957/b66d14a3-d113-4936-aa39-efb3e5c93dce)
@@ -197,7 +199,7 @@ Right Join được dùng để trả lại tất cả các hàng từ bảng b
 </div>
 
 ### Outer Join (Full Outer Join)
-Outer Join được dùng để trả về tất cả các dòng đúng với 1 trong các bảng.
+`Outer Join` được dùng để trả về tất cả các dòng đúng với 1 trong các bảng.
 <div align="center">
 
 ![image](https://github.com/homanhquan1812/SQL/assets/130955957/96afea03-def7-4445-8e6c-3f27176ae58e)
