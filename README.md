@@ -158,6 +158,27 @@ Bảng <b>Student_Subjects</b> đóng vai trò như một bảng liên kết gi�
 ### BCNF (Boyce – Codd Normal Form)
 Dạng chuẩn Boyce–Codd (hoặc BCNF hoặc 3.5NF) khá giống 3NF (Tự tìm hiểu kĩ).
 
+
+## Join
+Join được dùng để kết hợp các hàng (rows) từ hai hoặc nhiều bảng dựa trên một điều kiện chung, giúp bạn truy vấn và lấy dữ liệu từ nhiều bảng mà có liên quan đến nhau thông qua các khóa chính (primary keys) và khóa ngoại (foreign keys).
+### Inner Join
+Inner Join được dùng để trả về tất cả các hàng khi có ít nhất một giá trị ở cả hai bảng.
+
+![image](https://github.com/homanhquan1812/SQL/assets/130955957/d5a27f6a-7b16-4216-af5c-7ca3a0a23b4f)
+### Left Join (Left Outer Join)
+Left Join được dùng để trả lại tất cả các dòng từ bảng bên trái, và các dòng đúng với điều kiện từ bảng bên phải.
+
+![image](https://github.com/homanhquan1812/SQL/assets/130955957/7c19e76f-b48e-4955-abca-5638bf5ea526)
+### Right Join (Right Outer Join)
+Right Join được dùng để trả lại tất cả các hàng từ bảng bên phải, và các dòng thỏa mãn điều kiện từ bảng bên trái.
+
+![image](https://github.com/homanhquan1812/SQL/assets/130955957/b66d14a3-d113-4936-aa39-efb3e5c93dce)
+
+### Outer Join (Full Outer Join)
+Outer Join được dùng để trả về tất cả các dòng đúng với 1 trong các bảng.
+
+![image](https://github.com/homanhquan1812/SQL/assets/130955957/96afea03-def7-4445-8e6c-3f27176ae58e)
+
 # Some tips when using Databases
 * Phải có **dấu chấm phẩy ";"** cuối câu.
  * Sau khi dùng lệnh gì xong cũng phải **REFRESH** lại Database để phần mềm cập nhật lại những gì đã sửa đổi.
