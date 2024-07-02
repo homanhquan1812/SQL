@@ -129,7 +129,7 @@ Bảng <b>Subjects</b>:
 ### Third Normal Form (3NF)
 Tính chất cũa 3NF giống với 2NF, nhưng <b>khắt khe</b> hơn; nghĩa là trong bảng 2NF thì có thể vẫn còn 2 cột không khóa phụ thuộc lẫn nhau, trong khi 3NF có tính chất `không có sự phụ thuộc bắc cầu` giữa các cột không khóa trong bảng, nên được dùng để triệt để các trường hợp này.
 
-Như ví dụ ở 2NF, ta nhận thấy trong bảng **Subjects** rằng `price` vẫn phụ thuộc vào `subject_id` trong khi `subject_id` không phải khóa chính, nên ta vẫn phải tiếp tục tách ra và đây là kết quả:
+Như ví dụ ở 2NF, ta nhận thấy trong bảng **Subjects** rằng `price` vẫn phụ thuộc vào `subject_id` trong khi `subject_id` không phải khóa chính (có thể dùng `subject` thay vì `subject_id`), nên ta vẫn phải tiếp tục tách ra và đây là kết quả:
 
 Bảng <b>Students</b>:
 <div align="center">
@@ -158,14 +158,14 @@ Bảng <b>Subjects</b>:
 Ta đặt tên bảng mới là <b>Enrollments</b>:
 <div align="center">
     
-| subject_id | price | start_date
-|--|--|--|
-| S1 | 1000 | 2020-01-01 |
-| S2 | 2000 | 2020-01-02 |
-| S3 | 3000 | 2020-01-03 |
-| S4 | 4000 | 2020-01-04 |
-| S5 | 5000 | 2020-01-05 |
-| S6 | 6000 | 2020-01-06 |
+| id | subject_id | price | start_date
+|--|--|--|--|
+| 1 | S1 | 1000 | 2020-01-01 |
+| 2 | S2 | 2000 | 2020-01-02 |
+| 3 | S3 | 3000 | 2020-01-03 |
+| 4 | S4 | 4000 | 2020-01-04 |
+| 5 | S5 | 5000 | 2020-01-05 |
+| 6 | S6 | 6000 | 2020-01-06 |
 
 </div>
 
